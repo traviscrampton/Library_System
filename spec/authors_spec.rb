@@ -6,4 +6,12 @@ describe(Author) do
       expect(Author.all()).to(eq([]))
     end
   end
+
+  describe('#==') do
+    it('is the same author if it has the same name') do
+      author1 = Author.new({:name => "J.R.R Tolken", :id => nil})
+      author2 = Author.new({:name => "J.R.R Tolken", :id => nil})
+      expect(author1).to(eq(author2))
+    end
+  end
 end

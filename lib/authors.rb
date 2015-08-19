@@ -17,4 +17,7 @@ class Author
     authors
   end
 
+  define_method(:==) do |another_author|
+    self.name().==(another_author.name()).&(self.id().==(another_author.id()))
+  end
 end
