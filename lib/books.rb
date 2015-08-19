@@ -6,3 +6,4 @@ class Book
     @title = attributes.fetch(:title)
     @author_id = attributes.fetch(:author_id)
   end
+end
