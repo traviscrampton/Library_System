@@ -25,4 +25,14 @@ class Author
     result = DB.exec("INSERT INTO authors (name) VALUES ('#{@name}') RETURNING id")
     @id = result.first().fetch('id').to_i()
   end
+
+  define_singleton_method(:find) do |id|
+    found_author = nil
+    Author.all().each() do |author|
+      if author.id().==(id)
+        found_author = author
+      end
+    end
+    found_author
+  end
 end

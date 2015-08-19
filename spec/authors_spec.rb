@@ -22,4 +22,14 @@ describe(Author) do
       expect(Author.all()).to eq([author1])
     end
   end
+
+  describe('.find') do
+    it('returns an author by its ID') do
+      test_author = Author.new({:name => "Dr. Seuss", :id => nil})
+      test_author.save()
+      test_author2 = Author.new({:name => "J.K. Rowling", :id => nil})
+      test_author2.save()
+      expect(Author.find(test_author2.id())).to(eq(test_author2))
+    end
+  end
 end
