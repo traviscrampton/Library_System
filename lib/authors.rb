@@ -20,4 +20,9 @@ class Author
   define_method(:==) do |another_author|
     self.name().==(another_author.name()).&(self.id().==(another_author.id()))
   end
+
+  define_method(:save) do
+    result = DB.exec("INSERT INTO authors (name) VALUES ('#{@name}') RETURNING id")
+    @id = result.first().fetch('id').to_i()
+  end
 end
