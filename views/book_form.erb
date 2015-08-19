@@ -1,6 +1,6 @@
 <h1>Add books to any author:</h1>
 
-<form action="/books">
+<form action="/authors/<%=@author.id %>" method='post'>
   <label for="author_id">Select an Author</label>
   <select id='author_id' name='author_id' type='text'>
     <% @authors.each() do |author| %>

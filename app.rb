@@ -37,7 +37,7 @@ get('/authors/:id') do
   erb(:author)
 end
 
-post('/authors/:id') do
+post('/books') do
   title = params.fetch('title')
   author_id = params.fetch('author_id').to_i()
   @author = Author.find(author_id)
